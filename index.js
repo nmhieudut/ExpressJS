@@ -12,12 +12,13 @@ app.set('views', './views')
 
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-
+app.use(express.static('public'))
 
 app.get('/', (req, res) =>
     res.render("index")
 );
-app.use('/users',userRoute);
+app.use('/users', userRoute);
+
 
 
 app.listen(port, () => { console.log("listening on port " + port) });
